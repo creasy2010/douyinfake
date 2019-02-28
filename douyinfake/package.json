@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
-    "ios":"react-native run-ios",
-    "xcode":"Open ios/douyinfake.xcodeproj",
+    "ios": "react-native run-ios",
+    "xcode": "Open ios/douyinfake.xcodeproj",
     "test": "jest"
   },
   "dependencies": {
+    "@types/react-router-native": "^4.2.4",
     "react": "16.6.3",
-    "react-native": "0.58.5"
+    "react-native": "0.58.5",
+    "react-router-native": "^4.3.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.9",
