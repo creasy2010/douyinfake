@@ -6,7 +6,7 @@ export default class Index extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        首页
+        <Text>首页</Text>
       </View>
     );
   }

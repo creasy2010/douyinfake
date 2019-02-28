@@ -6,7 +6,7 @@ export default class Friend extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        friend页面
+        <Text>friend页面</Text>
       </View>
     );
   }
