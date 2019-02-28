@@ -6,6 +6,8 @@
     "isolatedModules": true,
     "jsx": "react",
     "lib": ["es6"],
+    "baseUrl": "./src",
+    "rootDir": "./src",
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
