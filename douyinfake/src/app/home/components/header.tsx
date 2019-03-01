@@ -34,8 +34,11 @@ export default class Header extends Component<Props> {
 
 let style=StyleSheet.create({
   container:{
+    zIndex: 10,
     flexDirection:"row",
     justifyContent:"space-around",
+    position:"absolute",
+    top:40,
   },
 
   btn:{

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-import {Platform, StyleSheet, Text, View,Image} from 'react-native';
+import {Platform, StyleSheet, Text, View,Image,TouchableWithoutFeedback, TouchableHighlight,Dimensions} from 'react-native';
+import {IVideo} from "../../../api/web-api";
+import Detail from  './detail';
 
 /**
  * @desc
@@ -10,25 +12,36 @@ import {Platform, StyleSheet, Text, View,Image} from 'react-native';
  * @Date    2019/2/28
  **/
 interface Props{
-
+  info:IVideo;
+  index:number;
 }
 
 export default class Video extends Component<Props> {
+
+  componentDidMount(){
+    console.log(this.props.info);
+  }
   render() {
+
+
     return (
-      <View style={style.container}>
-        <Image source={{uri:"https://images.liqucn.com/img/h1/h970/img201709211108070_info300X300.jpg"}} style={{
-          width:"100%",
-          resizeMode: 'contain',
-        }} />
-      </View>
+          <View style={style.container}>
+            <Image source={require('./000dEq5b3DHDge.jpg')} style={{
+              // width:"100%",
+              // resizeMode: 'contain',
+              backgroundColor:"white"
+            }} />
+            <Detail user={this.props.info.userInfo} type={this.props.info.type}></Detail>
+          </View>
     );
   }
 }
 
 let style =StyleSheet.create({
   container:{
-    width:"100%",
-    height:"100%"
+    backgroundColor:"black",
+    justifyContent:"center",
+    alignItems:"center",
+    height:Dimensions.get('window').height
   }
 });

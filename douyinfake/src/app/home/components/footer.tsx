@@ -9,7 +9,6 @@ import {Platform, StyleSheet, Text, View,Image} from 'react-native';
  * @company qianmi.com
  * @Date    2019/2/28
  **/
-
 interface Props{
 
 }
@@ -46,13 +45,12 @@ let styles=StyleSheet.create({
     color:"white",
     height:50,
     flexDirection:"row",
-    bottom:50,
+    bottom:75,
   },
 
   subItem:{
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor:"blue",
     flex:1,
   },
   subItemActive:{
