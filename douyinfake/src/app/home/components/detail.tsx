@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import {EVideoType, IUserInfo} from '../../../api/web-api';
+import {NavigationInjectedProps, withNavigation} from "react-navigation";
 
 /**
  * @desc
@@ -15,7 +16,7 @@ interface Props {
   type:EVideoType;
 }
 
-export default class Detail extends Component<Props> {
+class Detail extends Component<Props & NavigationInjectedProps> {
   render() {
     const {userName, desc} = this.props.user;
     return (
@@ -28,6 +29,7 @@ export default class Detail extends Component<Props> {
   }
 }
 
+export default withNavigation<Props>(Detail)
 let styles = StyleSheet.create({
   container: {
     position:"absolute",

@@ -9,20 +9,14 @@
  */
 
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-import Friend from './friend';
 import Home from './home';
-import Message from './message';
-import Mine from './mine';
+import Other from './other';
 
-import {createStackNavigator, createAppContainer, HeaderMode} from 'react-navigation';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
     Home,
-    Friend,
-    Message,
-    Mine
+    Other
 },
   {
     initialRouteName: "Home",

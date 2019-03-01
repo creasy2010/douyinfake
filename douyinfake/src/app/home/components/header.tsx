@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-
+import {  StyleSheet, Text, View,TouchableOpacity } from 'react-native';
+import {withNavigation,NavigationInjectedProps} from  'react-navigation';
 /**
  * @desc
  *
@@ -12,25 +12,40 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 
 interface Props {}
 
-export default class Header extends Component<Props> {
+
+class Header extends Component<Props & NavigationInjectedProps> {
   render() {
     return (
       <View style={style.container}>
         <View style={style.btn}>
-          <Text style={style.font}>随拍</Text>
+          <TouchableOpacity onPressOut={this._goto}>
+             <Text style={style.font}>随拍</Text>
+          </TouchableOpacity>
         </View>
         <View style={style.btnCenter}>
-          <Text style={style.font}>推荐</Text>
+          <TouchableOpacity onPressOut={this._goto}>
+            <Text style={style.font}>推荐</Text>
+          </TouchableOpacity>
           <View style={style.split}></View>
+          <TouchableOpacity onPressOut={this._goto}>
           <Text style={style.font}>南京</Text>
+          </TouchableOpacity>
         </View>
         <View style={style.btn}>
+        <TouchableOpacity onPressOut={this._goto}>
           <Text style={style.font}>search</Text>
+        </TouchableOpacity>
         </View>
       </View>
     );
   }
+
+  _goto=()=>{
+    this.props.navigation.navigate("Other")
+  }
 }
+
+export default withNavigation<Props>(Header)
 
 let style=StyleSheet.create({
   container:{

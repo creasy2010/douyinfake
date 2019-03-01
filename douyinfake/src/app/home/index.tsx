@@ -7,14 +7,15 @@ import {
   FlatList,
   TouchableHighlight,
   TouchableWithoutFeedback,
-  ViewToken
+  ViewToken,
 } from 'react-native';
 
 import Footer from './components/footer';
 import Header from './components/header';
 import Video from './components/video';
-import {SafeAreaView, SafeAreaViewForceInsetValue} from 'react-navigation';
+import {NavigationInjectedProps, SafeAreaView, SafeAreaViewForceInsetValue} from 'react-navigation';
 import {IVideo, queryVideo} from "../../api/web-api";
+
 
 interface Props {}
 interface State {
@@ -22,7 +23,7 @@ interface State {
   toShowIndex:number;
 }
 
-export default class Index extends Component<Props,State> {
+export default class Index extends Component<Props &  NavigationInjectedProps,State> {
 
   constructor(props:any){
     super(props);
