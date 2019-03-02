@@ -1,3 +1,5 @@
+import {IPageRequest} from "../types";
+
 /**
  * @desc
  *
@@ -33,60 +35,23 @@ export interface IVideo{
 }
 
 
-export async function queryVideo():Promise<IVideo[]>{
-  return Promise.resolve(
-    [
-      {
-        userInfo:{
-          userName:"用户名",
-          userId:"111",
-          desc:"描述信息",
-        },
-        src:"",
-        type:EVideoType.normal,
-        music:{
-          name:"歌曲名",
-          author:"歌手",
-          img:"",
-        },
-        favourCount:200000,
-        commentCount:8631,
-        shareCount:13000,
-      },
-      {
-        userInfo:{
-          userName:"用户名",
-          userId:"111",
-          desc:"描述信息",
-        },
-        src:"",
-        type:EVideoType.ad,
-        music:{
-          name:"歌曲名",
-          author:"歌手",
-          img:"",
-        },
-        favourCount:200000,
-        commentCount:8631,
-        shareCount:13000,
-      },
-      {
-        userInfo:{
-          userName:"用户名",
-          userId:"111",
-          desc:"描述信息",
-        },
-        src:"",
-        type:EVideoType.normal,
-        music:{
-          name:"歌曲名",
-          author:"歌手",
-          img:"",
-        },
-        favourCount:200000,
-        commentCount:8631,
-        shareCount:13000,
-      }, {
+interface IQueryReq extends IPageRequest{
+  //当前时间
+  current:number;
+  type:EVideoType
+}
+
+export async function queryVideo(req:IQueryReq):Promise<IVideo[]>{
+
+  //mock 数据
+  if(req.type===EVideoType.normal) {
+
+  }
+
+  let result  =[];
+  for (let i = req.start, ilen = req.end; i <= ilen; i++) {
+
+    result.push( {
       userInfo:{
         userName:"用户名",
         userId:"111",
@@ -102,7 +67,9 @@ export async function queryVideo():Promise<IVideo[]>{
       favourCount:200000,
       commentCount:8631,
       shareCount:13000,
-    },
-    ]
-  );
+    });
+  }
+
+
+  return Promise.resolve( result );
 }
