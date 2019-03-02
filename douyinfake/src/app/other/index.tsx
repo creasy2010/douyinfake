@@ -35,6 +35,7 @@ export default class Other extends Component<Props &  NavigationInjectedProps> {
       </View>
     );
   }
+
   _back=()=>{
     this.props.navigation.navigate("Home")
   }

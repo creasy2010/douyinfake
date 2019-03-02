@@ -15,30 +15,35 @@ import Header from './components/header';
 import Video from './components/video';
 import {NavigationInjectedProps, SafeAreaView, SafeAreaViewForceInsetValue} from 'react-navigation';
 import {IVideo, queryVideo} from "../../api/web-api";
+import { connect } from 'react-redux';
+import {IProps, IReducer} from "./types";
+import action from './action';
+import {bindActionCreators, Dispatch} from "redux";
 
 
-interface Props {}
 interface State {
-  videos:IVideo[];
   toShowIndex:number;
 }
 
-export default class Index extends Component<Props &  NavigationInjectedProps,State> {
+
+
+class Index extends Component<IProps &  NavigationInjectedProps ,State> {
 
   constructor(props:any){
     super(props);
     this.state={
-      videos:[],
       toShowIndex:0
     }
+
+    this.action = action(this.props.dispatch);
   }
+  action:ReturnType<typeof action>;
 
   list:FlatList<IVideo>|null=null;
 
   async componentDidMount(){
-    let videos=await queryVideo();
-    console.log("videos==>",videos);
-    this.setState({videos})
+    console.log("this.props.home",this.props);
+    this.action.init();
   }
 
   render() {
@@ -47,7 +52,7 @@ export default class Index extends Component<Props &  NavigationInjectedProps,St
         <Header />
         <FlatList
           ref={(ref) => this.list = ref}
-          data={this.state.videos}
+          data={this.props.home.videos}
           onLayout={this.onLayout}
           onScroll={this.onScroll}
           onScrollBeginDrag={this.onScrollBeginDrag}
@@ -134,3 +139,9 @@ const styles = StyleSheet.create({
     // backgroundColor:"orange"
   }
 });
+
+const mapStateToProps = ({home}:{home:IReducer}) => {
+  return {home}
+};
+
+export default connect(mapStateToProps)(Index);

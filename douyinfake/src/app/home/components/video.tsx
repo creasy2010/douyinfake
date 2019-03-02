@@ -11,7 +11,7 @@ import Detail from  './detail';
  * @company qianmi.com
  * @Date    2019/2/28
  **/
-interface Props{
+interface Props {
   info:IVideo;
   index:number;
 }

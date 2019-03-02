@@ -10,10 +10,10 @@
 
 import React from 'react';
 import Home from './home';
+import { Provider } from 'react-redux';
 import Other from './other';
-
 import {createStackNavigator, createAppContainer} from 'react-navigation';
-
+import store  from  '../store';
 const MainNavigator = createStackNavigator({
     Home,
     Other
@@ -27,8 +27,12 @@ const AppContainer = createAppContainer(MainNavigator);
 
 
 
+
 export default class Index extends React.Component {
   render() {
-    return <AppContainer />;
+
+    return( <Provider store={ store }>
+      <AppContainer />
+    </Provider>);
   }
 }
