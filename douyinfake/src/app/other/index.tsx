@@ -9,20 +9,20 @@ export default class Other extends Component<Props &  NavigationInjectedProps> {
     time: 0,
   };
 
-  timer: number;
+  timer: any;
 
   componentDidMount() {
-    console.log('初始化定时器');
+    console.log('other 初始化定时器');
     this.timer = setInterval(() => {
       this.setState({time: this.state.time+1});
     }, 1000);
 
-    console.log('初始化定时器结束!');
   }
 
   componentWillUnmount() {
     this.timer && clearInterval(this.timer);
     this.timer=null;
+    console.log('other 定时器clean结束!');
   }
 
   render() {

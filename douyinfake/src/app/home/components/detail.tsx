@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {EVideoType, IUserInfo} from '../../../api/web-api';
-import {NavigationInjectedProps, withNavigation} from "react-navigation";
+import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 
 /**
  * @desc
@@ -13,7 +13,7 @@ import {NavigationInjectedProps, withNavigation} from "react-navigation";
  **/
 interface Props {
   user: IUserInfo;
-  type:EVideoType;
+  type: EVideoType;
 }
 
 class Detail extends Component<Props & NavigationInjectedProps> {
@@ -21,7 +21,9 @@ class Detail extends Component<Props & NavigationInjectedProps> {
     const {userName, desc} = this.props.user;
     return (
       <View style={styles.container}>
-        {this.props.type===EVideoType.ad?<Text style={styles.ad}>广告</Text>:null}
+        {this.props.type === EVideoType.ad
+          ? <Text style={styles.ad}>广告</Text>
+          : null}
         <Text style={styles.title}>@{userName}</Text>
         <Text style={styles.desc}>{desc}</Text>
       </View>
@@ -29,29 +31,29 @@ class Detail extends Component<Props & NavigationInjectedProps> {
   }
 }
 
-export default withNavigation<Props>(Detail)
+export default withNavigation<Props>(Detail);
 let styles = StyleSheet.create({
   container: {
-    position:"absolute",
-    left:0,
-    bottom:140,
-    paddingLeft:10,
+    position: 'absolute',
+    left: 0,
+    bottom: 140,
+    paddingLeft: 10,
   },
-  ad:{
-    fontSize:13,
-    opacity:0.7,
-    color:"white"
+  ad: {
+    fontSize: 13,
+    opacity: 0.7,
+    color: 'white',
   },
-  title:{
-    marginTop:5,
-    marginBottom:5,
-    color:"white",
-    fontSize:16,
-    opacity:0.9
+  title: {
+    marginTop: 5,
+    marginBottom: 5,
+    color: 'white',
+    fontSize: 16,
+    opacity: 0.9,
   },
-  desc:{
-    color:"white",
-    fontSize:14,
-    opacity:0.7
-  }
+  desc: {
+    color: 'white',
+    fontSize: 14,
+    opacity: 0.7,
+  },
 });

@@ -3,7 +3,8 @@ import {IVideo} from "../../api/web-api";
 import {Dispatch} from "redux";
 
 export interface IReducer {
-  videos:IVideo[]
+  //视频列表
+  videos:IVideo[];
 }
 
 export type IProps = {

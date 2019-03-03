@@ -1,18 +1,18 @@
-import {INIT} from './constant';
+import {AddVideo} from './constant';
 import {IReducer} from "./types";
 import {Action} from "../../types/index";
 
 const home = (
   state:IReducer = {
-    videos: [],
+    videos: []
   },
   action: Action,
 ) => {
 
   switch (action.type) {
-    case INIT:
+    case AddVideo:
       return {
-        ...state,videos:action.payload
+        ...state,videos:state.videos.concat(action.payload)
       };
     default:
       return state;

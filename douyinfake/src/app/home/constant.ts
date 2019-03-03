@@ -1,3 +1,4 @@
 const BASE = "home_";
 
-export const INIT = BASE + "INIT";
+//添加视频源到视频列表
+export const AddVideo = BASE + "addVideo";

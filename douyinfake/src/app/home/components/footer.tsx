@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
-import {NavigationInjectedProps, withNavigation} from "react-navigation";
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {NavigationInjectedProps, withNavigation} from 'react-navigation';
 
 /**
  * @desc
@@ -19,7 +12,7 @@ import {NavigationInjectedProps, withNavigation} from "react-navigation";
  **/
 interface Props {}
 
- class Footer extends Component<Props & NavigationInjectedProps> {
+class Footer extends Component<Props & NavigationInjectedProps> {
   render() {
     return (
       <View style={styles.container}>
@@ -50,14 +43,12 @@ interface Props {}
     );
   }
 
-  _onPress=()=>{
+  _onPress = () => {
     this.props.navigation.navigate('Other');
-  }
+  };
 }
 
-export default withNavigation<Props>(Footer)
-
-
+export default withNavigation<Props>(Footer);
 
 let styles = StyleSheet.create({
   container: {
