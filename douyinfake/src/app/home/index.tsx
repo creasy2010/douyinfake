@@ -61,8 +61,10 @@ class Index extends Component<IProps & NavigationInjectedProps, State> {
     let adTime = await this._getLastAdtime();
 
      if (Date.now() - adTime < CAdPeriod) {
+       console.log('继续之前的计时');
       this._startAdTask(Date.now() - adTime);
     } else {
+       console.log('开启新计时');
        this._startAdTask(CAdPeriod);
      }
   }
@@ -98,6 +100,8 @@ class Index extends Component<IProps & NavigationInjectedProps, State> {
 
   _getLastAdtime=async ():Promise<number>=>{
     let adTime  = await AsyncStorage.getItem(CAdtimeKey);
+
+    console.log('_getLastAdtime::',adTime);
     return parseInt(adTime||"0");
   }
 
@@ -121,6 +125,7 @@ class Index extends Component<IProps & NavigationInjectedProps, State> {
         //应该是广告播放后, 再去等30秒后插入广告
         // this._startAdTask(CAdPeriod);
       }, timeout);
+      console.log(`${timeout/1000}s后,获取广告`)
     }
 
   };
