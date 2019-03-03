@@ -37,8 +37,32 @@
 ## 实现原理
 
 ### 视频列表
- 使用FlatList,单个视频占一屏,当onViewableItemsChanged事件发生时(用户切换)切换至下一视频源;
 
+使用FlatList,单个视频占一屏,当onViewableItemsChanged事件发生时(用户切换)切换至下一视频源;
+
+利用本次显示特征, 可以借助两个方法来实现切换效果 具体如下代码.
+
+```typescript
+
+  /**
+   *
+   *
+   * @param {{viewableItems: Array<ViewToken>; changed: Array<ViewToken>}} info
+   */
+  onViewableItemsChanged = (info: {
+    viewableItems: Array<ViewToken>;
+    changed: Array<ViewToken>;
+  }) => {
+    if (info.changed[0].isViewable) {
+      this.setState({toShowIndex: info.changed[0].index});
+    }
+  };
+
+  onScrollEndDrag = (e: any) => {
+    this.list.scrollToIndex({index: this.state.toShowIndex, viewOffset: 0});
+  };
+
+```
 
 ### 广告
 广告视频与正常视频 共同放在videos字段;

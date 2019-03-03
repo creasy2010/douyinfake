@@ -157,9 +157,6 @@ class Index extends Component<IProps & NavigationInjectedProps, State> {
   /**
    *
    *
-   * 1.决定 是否划到下一页
-   * 2.确定显示上一个还是显示 下一个
-   *
    * @param {{viewableItems: Array<ViewToken>; changed: Array<ViewToken>}} info
    */
   onViewableItemsChanged = (info: {
